@@ -455,7 +455,7 @@
                       method="POST"
                       enctype="multipart/form-data">
 
-                    <input type="hidden" name="_subject" value="New Job Application – Cardiff International School">
+                    <input type="hidden" name="_subject" id="emailSubject" value="New Job Application – Cardiff International School">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_next" value="thank-you-careers-cardiff.html">
@@ -655,6 +655,15 @@
             const span = this.closest('.file-zone').querySelector('.file-face span');
             span.textContent = this.files.length ? this.files[0].name : 'Choose File (PDF only)';
         });
+    });
+
+    // Dynamic email subject based on selected position
+    document.getElementById('position').addEventListener('change', function() {
+        const pos = this.value;
+        const subject = pos
+            ? 'New Application \u2013 ' + pos + ' | Cardiff International School'
+            : 'New Job Application \u2013 Cardiff International School';
+        document.getElementById('emailSubject').value = subject;
     });
 
     // File size validation
