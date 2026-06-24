@@ -1,6 +1,5 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/index.html" },
     { "source": "/careers-cardiff", "destination": "/index.html" }
   ]
 }
